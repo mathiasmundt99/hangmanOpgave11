@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+:root{
+    --stdPadding: 0px;
+    --stdMargin: 0px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
