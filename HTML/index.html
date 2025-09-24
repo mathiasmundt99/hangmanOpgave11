@@ -3,13 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hangman</title>
     <link rel="stylesheet" href="../Assets/CSS/globalStyle.css" />
     <script src="../Assets/JS/app.js" defer></script>
   </head>
   <body>
     <header></header>
-    <main></main>
+    <main>
+      <div class="box">
+        <h1>Hangman Opgave 11</h1>
+        <p>Gæt bogstaverne i ordet</p>
+
+        <div class="info">
+          <div class="panel">
+            Status: <span id="statusText">Spil i gang</span>
+          </div>
+          <div class="panel">
+            Forkerte gæt: <span id="wrongCount">0</span>/<span id="maxWrong"
+              >6</span
+            >
+          </div>
+          <div class="panel">
+            Forkerte bogstaver: <span id="wrongLetters">—</span>
+          </div>
+        </div>
+
+        <div class="word" id="maskedWord">_ _ _ _</div>
+
+        <div class="controls">
+          <input
+            id="letterInput"
+            type="text"
+            maxlength="1"
+            placeholder="Skriv en bogstav"
+          />
+          <button id="guessBtn">Gæt</button>
+          <button id="restartBtn" class="secondary">Nyt ord</button>
+        </div>
+      </div>
+    </main>
     <footer></footer>
   </body>
 </html>
