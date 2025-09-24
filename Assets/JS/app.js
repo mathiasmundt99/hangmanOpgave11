@@ -40,10 +40,14 @@ function startNewGame() {
 function updateUI() {
   maskedEl.textContent = game.revealed.join(" ");
   wrongCountEl.textContent = game.wrongCount;
-  wrongLettersEl.textContent = game.wrongLetters.length ? game.wrongLetters.join(", ") : "—";
+  if (game.wrongLetters.length > 0) {
+  wrongLettersEl.textContent = game.wrongLetters.join(", ");
+} else {
+  wrongLettersEl.textContent = "—";
+}
 
   if (game.finished && game.wrongCount >= maxWrong) {
-    statusText.textContent = `Du tabte..Ordet var: ${game.secret}`;
+    statusText.textContent = `Du tabte. Ordet var: ${game.secret}`;
   } else if (game.finished) {
     statusText.textContent = `Du vandt! Ordet var: ${game.secret}`;
   } else {
@@ -55,10 +59,12 @@ function handleGuess(letter) {
 letter = letter.toLowerCase();
 // Hvis spillet er færdigt eller input ikke er et bogstav: ignorer (return)
   if (game.finished || !isLetter(letter)) {
+    // Man kunne sende en besked til brugeren her
   return;
     }
   // Hvis allerede gættet: ignorer (return)
   if (game.revealed.includes(letter) || game.wrongLetters.includes(letter)) {
+    // Man kunne sende en besked til brugeren her
     return;
   }
     // Hvis bogstavet er i det hemmelige ord:  Lægges til i revealed arrayet
