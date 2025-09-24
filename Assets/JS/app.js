@@ -88,13 +88,14 @@ letter = letter.toLowerCase();
 }
 // Events
 guessBtn.addEventListener("click", () => {
-  const val = letterInput.value.trim();
-  if (val) {
-    handleGuess(val[0]);
+  const letter = letterInput.value.trim();
+  if (letter) {
+    handleGuess(letter[0]);
     letterInput.value = "";
     letterInput.focus();
   }
 });
+
 
 restartBtn.addEventListener("click", startNewGame);
 
