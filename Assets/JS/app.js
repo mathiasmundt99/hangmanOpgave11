@@ -30,7 +30,13 @@ function isLetter(ch) {
 // Start et nyt spil
 function startNewGame() {
   game.secret = words[Math.floor(Math.random() * words.length)];
-  game.revealed = [...game.secret].map(ch => (isLetter(ch) ? "_" : ch));
+  game.revealed = [...game.secret].map(ch => {
+  if (isLetter(ch)) {
+    return "_";
+  } else {
+    return ch;
+  }
+});
   game.wrongLetters = [];
   game.wrongCount = 0;
   game.finished = false;
